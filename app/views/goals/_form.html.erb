@@ -1,0 +1,33 @@
+<%= render "layouts/errors" %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <label>Body
+    <input type="text" name="goal[body]" value="<%= goal.body %>">
+  </label>
+
+  <br>
+
+  <label>Private
+    <input type="radio"
+           name="goal[private]"
+           value="true"
+           <%= "checked" if goal.private %>>
+  </label>
+
+  <label>Public
+    <input type="radio"
+           name="goal[private]"
+           value="false"
+           <%= "checked" unless goal.private %>>
+  </label>
+
+  <br>
+
+  <input type="submit"  value="Submit">
+</form>
